@@ -1,0 +1,20 @@
+version: '3.8'
+services:
+  vocbench3:
+    image: art-uniroma2/vocbench3
+    ports:
+    - "1979:1979"
+    volumes:
+     - type: bind
+       source: ./stdata
+       target: /opt/vocbench3/data
+    links:
+    - graphdb
+  graphdb:
+    image: ontotext/graphdb:9.3.1-se
+    ports:
+     - "127.0.0.1:7200:7200"
+    volumes:
+     - type: bind
+       source: ./gdbhome
+       target: /opt/graphdb/home
