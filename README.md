@@ -36,6 +36,8 @@ where *vocbench3-instance-name* is the name assigned to the newly created contai
 The parameter `-p` is use to the the port `1979` in the *container* (on the right) to the
 same port in the *host* (on the left). If the port should only be accessible locally, use `-p 127.0.0.1:1979:1979`.
 
+After a while, PMKI should be reachable at `http://localhost:1979/pmki` 
+
 Caveats
 =======
 
