@@ -1,20 +1,27 @@
 version: '3.8'
 services:
   vocbench3:
-    image: art-uniroma2/vocbench3
+    image: vocbench3:8.0.0
+    build:
+      context: 8.0.0
     ports:
     - "1979:1979"
     volumes:
      - type: bind
-       source: ./stdata
+       source: ./volumes/stdata
        target: /opt/vocbench3/data
     links:
     - graphdb
   graphdb:
-    image: ontotext/graphdb:9.3.1-se
+    image: graphdb-with-st-sails:9.1.1-se
+    build:
+      context: ./helpers/graphdb-with-st-sails
+      args:
+        st_version: "8.0"
+        gdb_version: "9.1.1-se"
     ports:
      - "127.0.0.1:7200:7200"
     volumes:
      - type: bind
-       source: ./gdbhome
+       source: ./volumes/gdbhome
        target: /opt/graphdb/home

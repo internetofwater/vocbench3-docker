@@ -20,7 +20,7 @@ Build an image from sources
 * copy the *full* distribution of VocBench 3, which can be found among the [downloads](https://bitbucket.org/art-uniroma2/vocbench3/downloads/).
 * issue the following command
 
-  `docker build -t art-uniroma2/vocbench3:<version> .`
+  `docker build -t vocbench3:<version> .`
 
   where `<version>` is the version number (e.g. `8.0.0`)
 
@@ -29,14 +29,14 @@ Start a VocBench 3 instance
 
 Executing the following command to start a new container.
 
-`docker run -p 1979:1979 --name vocbench3-instance-name -t art-uniroma2/vocbench3:tag`
+`docker run -p 1979:1979 --name vocbench3-instance-name -t vocbench3:tag`
 
 where *vocbench3-instance-name* is the name assigned to the newly created container, *tag* is the tag specifying the desired VocBench version.
 
 The parameter `-p` is use to the the port `1979` in the *container* (on the right) to the
 same port in the *host* (on the left). If the port should only be accessible locally, use `-p 127.0.0.1:1979:1979`.
 
-After a while, PMKI should be reachable at `http://localhost:1979/pmki` 
+After a while, VocBench 3 should be reachable at `http://localhost:1979/vocbench3` 
 
 Caveats
 =======
@@ -52,11 +52,11 @@ The latter can be done in this manner:
 
 1. Create a directory for VocBench 3
 
-   `mkdir -p stdata`
+   `mkdir -p volumes/stdata`
 
 2. Start your `vocbench3` container like this:
 
-   `docker run -v ${PWD}/stdata:/opt/vocbench3/data -p 1979:1979 --name vocbench3-instance-name -t art-uniroma2/vocbench3:tag`
+   `docker run -v ${PWD}/volumes/stdata:/opt/vocbench3/data -p 1979:1979 --name vocbench3-instance-name -t vocbench3:tag`
 
 The container is executed as root
 ---------------------------------
@@ -72,13 +72,13 @@ The file `docker-compose.yml` for [Docker Compose](https://docs.docker.com/compo
 Follow these instructions to create the deployment:
  * create the data directory for Semantic Turkey
    
-   `mkdir stdata`
+   `mkdir -p volumes/stdata`
 
  * create the data directory for GraphDB
    
-   `mkdir gdbhome`
+   `mkdir -p volumes/gdbhome`
 
-* place the license for GraphDB SE under `gdbhome/conf` in a file named `graphdb.license`
+* place the license for GraphDB SE under `volumes/gdbhome/conf` in a file named `graphdb.license`
 
 * start the deployment in detached mode
 
