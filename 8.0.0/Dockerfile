@@ -10,7 +10,7 @@ RUN set -eux ; \
 	cd /opt/vocbench3 ; \
 	unzip -q /tmp/vocbench3-${vb_version}_full.zip -d . ; \
 	sed -i 's/\(data\.dir\)=.*/\1=..\/data\/SemanticTurkeyData/' /opt/vocbench3/semanticturkey-${st_version}/etc/it.uniroma2.art.semanticturkey.cfg ; \
-	rm /tmp/vocbench3-${vb_version}_full.zip
+	rm /tmp/vocbench3-${vb_version}-full.zip
 
 WORKDIR /opt/vocbench3/semanticturkey-$st_version
 
