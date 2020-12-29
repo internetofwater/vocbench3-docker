@@ -67,7 +67,7 @@ The container is executed by `root`, which may not be appropriate for production
 Example deployment
 ==================
 
-The file `docker-compose.yml` for [Docker Compose](https://docs.docker.com/compose/) specified a deployment using [Ontext GraphDB](http://graphdb.ontotext.com/) SE.
+The file `docker-compose.yml` for [Docker Compose](https://docs.docker.com/compose/) specified a deployment using [Ontotext GraphDB](http://graphdb.ontotext.com/) SE.
 
 Follow these instructions to create the deployment:
  * create the data directory for Semantic Turkey
