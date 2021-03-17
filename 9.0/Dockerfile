@@ -1,7 +1,7 @@
 FROM adoptopenjdk/openjdk8:alpine
 
-ENV vb_version=8.0.1
-ENV st_version=8.0.1
+ENV vb_version=9.0.0
+ENV st_version=9.0
 
 COPY vocbench3-${vb_version}-full.zip /tmp
 RUN set -eux ; \
