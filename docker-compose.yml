@@ -1,9 +1,9 @@
 version: '3.8'
 services:
   vocbench3:
-    image: vocbench3:9.0.0
+    image: vocbench3:9.1.0
     build:
-      context: 9.0.0
+      context: 9.1.0
     ports:
     - "1979:1979"
     volumes:
@@ -13,12 +13,12 @@ services:
     links:
     - graphdb
   graphdb:
-    image: graphdb-with-st-sails:9.1.1-se
+    image: graphdb-with-st-sails:9.7.0-se
     build:
       context: ./helpers/graphdb-with-st-sails
       args:
-        st_version: "9.0"
-        gdb_version: "9.1.1-se"
+        st_version: "9.1"
+        gdb_version: "9.7.0-se"
     ports:
      - "127.0.0.1:7200:7200"
     volumes:
