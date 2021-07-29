@@ -13,12 +13,12 @@ services:
     links:
     - graphdb
   graphdb:
-    image: graphdb-with-st-sails:9.7.0-se
+    image: graphdb-with-st-sails:9.8.1-se
     build:
       context: ./helpers/graphdb-with-st-sails
       args:
         st_version: "10.0"
-        gdb_version: "9.7.0-se"
+        gdb_version: "9.8.1-se"
     ports:
      - "127.0.0.1:7200:7200"
     volumes:
