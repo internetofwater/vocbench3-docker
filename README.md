@@ -1,7 +1,7 @@
 Supported tags
 ==============
 
-Tags identify a specific release (i.e. version) of VocBench 3, while the tag `latest` is reference to the latest release (currently, `10.0.0`).
+Tags identify a specific release (i.e. version) of VocBench 3, while the tag `latest` is reference to the latest release (currently, `10.1.1`).
 
 What is VocBench 3?
 ===================
@@ -22,7 +22,7 @@ Build an image from sources
 
   `docker build -t vocbench3:<version> .`
 
-  where `<version>` is the version number (e.g. `10.0.0`). Do not miss the dot (.) at the end of command: it indicates to construct the build context from the files located in the current working directory.
+  where `<version>` is the version number (e.g. `10.1.1`). Do not miss the dot (.) at the end of command: it indicates to construct the build context from the files located in the current working directory.
 
 Start a VocBench 3 instance
 ---------------------------
