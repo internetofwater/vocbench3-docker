@@ -1,14 +1,14 @@
 Supported tags
 ==============
 
-Tags identify a specific release (i.e. version) of VocBench 3, while the tag `latest` is reference to the latest release (currently, `11.4.2`).
+Tags identify a specific release (i.e. version) of VocBench 3, while the tag `latest` is reference to the latest release (currently, `12.0.0`).
 
 What is VocBench 3?
 ===================
 
-[VocBench 3](http://vocbench.uniroma2.it/) is a web-based, multilingual, collaborative development platform for managing [OWL](https://www.w3.org/TR/owl2-overview/) ontologies, [SKOS](https://www.w3.org/TR/skos-reference/)(/[XL](https://www.w3.org/TR/skos-reference/skos-xl.html)) thesauri, [Ontolex-lemon](https://www.w3.org/2016/05/ontolex/) lexicons and generic RDF datasets.
+[VocBench 3](https://vocbench.uniroma2.it/) is a web-based, multilingual, collaborative development platform for managing [OWL](https://www.w3.org/TR/owl2-overview/) ontologies, [SKOS](https://www.w3.org/TR/skos-reference/)(/[XL](https://www.w3.org/TR/skos-reference/skos-xl.html)) thesauri, [Ontolex-lemon](https://www.w3.org/2016/05/ontolex/) lexicons and generic [RDF](https://www.w3.org/RDF/) datasets.
 
-VocBench business and data access layers are realized by [Semantic Turkey](http://semanticturkey.uniroma2.it/), an open-source platform for Knowledge Acquisition and Management realized by the [ART Research Group](http://art.uniroma2.it/) at the [University of Rome Tor Vergata](http://www.uniroma2.it/).
+VocBench business and data access layers are realized by [Semantic Turkey](https://semanticturkey.uniroma2.it/), an open-source platform for Knowledge Acquisition and Management realized by the [ART Research Group](https://art.uniroma2.it/) at [Tor Vergata University of Rome](https://www.uniroma2.it/).
 
 How to use this image
 =====================
@@ -22,7 +22,7 @@ Build an image from sources
 
   `docker build -t vocbench3:<version> .`
 
-  where `<version>` is the version number (e.g. `11.4.2`). Do not miss the dot (.) at the end of command: it indicates to construct the build context from the files located in the current working directory.
+  where `<version>` is the version number (e.g. `12.0.0`). Do not miss the dot (.) at the end of command: it indicates to construct the build context from the files located in the current working directory.
 
 Start a VocBench 3 instance
 ---------------------------
@@ -67,9 +67,13 @@ The container is executed by `root`, which may not be appropriate for production
 Example deployment
 ==================
 
-The file `docker-compose.yml` for [Docker Compose](https://docs.docker.com/compose/) specified a deployment using [Ontotext GraphDB](http://graphdb.ontotext.com/) SE.
+The file `docker-compose.yml` for [Docker Compose](https://docs.docker.com/compose/) specified a deployment using [Ontotext GraphDB](http://graphdb.ontotext.com/).
 
 Follow these instructions to create the deployment:
+ * copy the *full* distribution of VocBench 3, which can be found among the [downloads](https://bitbucket.org/art-uniroma2/vocbench3/downloads/), to the directory `helpers/graphdb-with-st-sails`
+
+ * copy the ZIP archive built from `https://github.com/Ontotext-AD/graphdb-lucene-fts-plugin` using the same Java version used by Semantic Turkey (currently Java 21) to the directory `helpers/graphdb-with-st-sails` 
+
  * create the data directory for Semantic Turkey
    
    `mkdir -p volumes/stdata`
@@ -78,7 +82,7 @@ Follow these instructions to create the deployment:
    
    `mkdir -p volumes/gdbhome`
 
-* place the license for GraphDB SE under `volumes/gdbhome/conf` in a file named `graphdb.license`
+* place the license for GraphDB under `volumes/gdbhome/conf` in a file named `graphdb.license`, otherwise GraphDB will run in Free mode
 
 * start the deployment in detached mode
 

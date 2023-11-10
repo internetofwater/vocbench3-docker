@@ -1,7 +1,7 @@
-FROM adoptopenjdk/openjdk8:alpine
+FROM eclipse-temurin:21-alpine
 
-ENV vb_version=11.4.2
-ENV st_version=11.4.2
+ENV vb_version=12.0.0
+ENV st_version=12.0
 
 COPY vocbench3-${vb_version}-full.zip /tmp
 RUN set -eux ; \
@@ -11,12 +11,11 @@ RUN set -eux ; \
 	unzip -q /tmp/vocbench3-${vb_version}-full.zip -d . ; \
 	chmod -R u=rwX,go=rX semanticturkey-${st_version} ; \
 	chmod +x semanticturkey-${st_version}/bin/* ; \
-	sed -i 's/\(data\.dir\)=.*/\1=..\/data\/SemanticTurkeyData/' /opt/vocbench3/semanticturkey-${st_version}/etc/it.uniroma2.art.semanticturkey.cfg ; \
+	echo 'semanticturkey.data.dir=../data/SemanticTurkeyData' > semanticturkey-${st_version}/application.properties ; \
 	rm /tmp/vocbench3-${vb_version}-full.zip
 
 WORKDIR /opt/vocbench3/semanticturkey-$st_version
 
 EXPOSE 1979
 
-ENTRYPOINT ["bin/karaf"]
-CMD ["server"]
+ENTRYPOINT ["bin/semanticturkey.sh"]
