@@ -29,7 +29,7 @@ RUN apk add --no-cache bash curl util-linux procps net-tools busybox-extras wget
     rm /tmp/graphdb-${version}.zip && \
     mv graphdb-${version} dist && \
     mkdir -p ${GRAPHDB_HOME} && \
-    ln -s /lib/libc.musl-x86_64.so.1 /lib/ld-linux-x86-64.so.2 && \
+    ln -sf /lib/libc.musl-x86_64.so.1 /lib/ld-linux-x86-64.so.2 && \
     unzip -j "/tmp/vocbench3-${vb_version}-full.zip" "semanticturkey-${st_version}/lib/st-changetracking-sail-${st_version}.jar" \ 
                                                 "semanticturkey-${st_version}/lib/st-trivial-inference-sail-${st_version}.jar" \ 
                                                 -d /opt/graphdb/dist/lib && \

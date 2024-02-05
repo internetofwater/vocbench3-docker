@@ -1,7 +1,7 @@
 FROM eclipse-temurin:21-alpine
 
-ENV vb_version=12.0.0
-ENV st_version=12.0
+ARG vb_version=12.1.0
+ARG st_version=12.1
 
 COPY vocbench3-${vb_version}-full.zip /tmp
 RUN set -eux ; \
