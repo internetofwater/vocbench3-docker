@@ -5,7 +5,7 @@
 FROM eclipse-temurin:21-jdk-alpine
 
 # Build time arguments
-ARG version=10.4.1
+ARG gdb_version=10.4.1
 ARG st_version
 ARG vb_version
 ENV GRAPHDB_PARENT_DIR=/opt/graphdb
@@ -20,14 +20,14 @@ COPY lucene-fts-plugin-graphdb-plugin.zip .
 
 RUN apk add --no-cache bash curl util-linux procps net-tools busybox-extras wget less libc6-compat && \
     apk upgrade libssl3 libcrypto3 && \
-    curl -fsSL "https://maven.ontotext.com/repository/owlim-releases/com/ontotext/graphdb/graphdb/${version}/graphdb-${version}-dist.zip" > \
-    graphdb-${version}.zip && \
-    bash -c 'md5sum -c - <<<"$(curl -fsSL https://maven.ontotext.com/repository/owlim-releases/com/ontotext/graphdb/graphdb/${version}/graphdb-${version}-dist.zip.md5)  graphdb-${version}.zip"' && \
+    curl -fsSL "https://maven.ontotext.com/repository/owlim-releases/com/ontotext/graphdb/graphdb/${gdb_version}/graphdb-${gdb_version}-dist.zip" > \
+    graphdb-${gdb_version}.zip && \
+    bash -c 'md5sum -c - <<<"$(curl -fsSL https://maven.ontotext.com/repository/owlim-releases/com/ontotext/graphdb/graphdb/${gdb_version}/graphdb-${gdb_version}-dist.zip.md5)  graphdb-${gdb_version}.zip"' && \
     mkdir -p ${GRAPHDB_PARENT_DIR} && \
     cd ${GRAPHDB_PARENT_DIR} && \
-    unzip /tmp/graphdb-${version}.zip && \
-    rm /tmp/graphdb-${version}.zip && \
-    mv graphdb-${version} dist && \
+    unzip /tmp/graphdb-${gdb_version}.zip && \
+    rm /tmp/graphdb-${gdb_version}.zip && \
+    mv graphdb-${gdb_version} dist && \
     mkdir -p ${GRAPHDB_HOME} && \
     ln -sf /lib/libc.musl-x86_64.so.1 /lib/ld-linux-x86-64.so.2 && \
     unzip -j "/tmp/vocbench3-${vb_version}-full.zip" "semanticturkey-${st_version}/lib/st-changetracking-sail-${st_version}.jar" \ 

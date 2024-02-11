@@ -70,6 +70,7 @@ Example deployment
 The file `docker-compose.yml` for [Docker Compose](https://docs.docker.com/compose/) specified a deployment using [Ontotext GraphDB](http://graphdb.ontotext.com/).
 
 Follow these instructions to create the deployment:
+ * make su that the file `.env` contains the right version numbers
  * copy the *full* distribution of VocBench 3, which can be found among the [downloads](https://bitbucket.org/art-uniroma2/vocbench3/downloads/), to the directory `helpers/graphdb-with-st-sails`
 
  * copy the ZIP archive built from `https://github.com/Ontotext-AD/graphdb-lucene-fts-plugin` using the same Java version used by Semantic Turkey (currently Java 21) to the directory `helpers/graphdb-with-st-sails` 
