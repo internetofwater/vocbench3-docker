@@ -1,4 +1,4 @@
-FROM eclipse-temurin:21-alpine
+FROM eclipse-temurin:17-alpine
 
 ARG vb_version=12.1.0
 ARG st_version=12.1
