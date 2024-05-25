@@ -1,10 +1,9 @@
 version: '3.8'
 services:
   vocbench3:
-    image: vocbench3:${VB_VERSION}
     build:
       context: 12.1.0
-      environment:
+      args:
         vb_version: ${VB_VERSION}
         st_version: ${ST_VERSION}
     ports:
@@ -16,7 +15,6 @@ services:
     links:
     - graphdb
   graphdb:
-    image: graphdb-with-st-sails:${GDB_VERSION}
     build:
       context: ./helpers/graphdb-with-st-sails
       args:

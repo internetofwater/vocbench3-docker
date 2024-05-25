@@ -2,7 +2,7 @@
 # to alter the base image from eclipse-temurin:11-jdk-alpine to eclipse-temurin:21-jdk-alpine
 
 
-FROM eclipse-temurin:21-jdk-alpine
+FROM eclipse-temurin:17-jdk-alpine
 
 # Build time arguments
 ARG gdb_version=10.4.1
