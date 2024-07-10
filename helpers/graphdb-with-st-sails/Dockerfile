@@ -5,7 +5,7 @@
 FROM eclipse-temurin:17-jdk-alpine
 
 # Build time arguments
-ARG gdb_version=10.4.1
+ARG gdb_version=10.6.2
 ARG st_version
 ARG vb_version
 ENV GRAPHDB_PARENT_DIR=/opt/graphdb
