@@ -3,7 +3,7 @@ services:
   vocbench3:
     image: vocbench3:${VB_VERSION}
     build:
-      context: 12.1.0
+      context: 12.1.1
       environment:
         vb_version: ${VB_VERSION}
         st_version: ${ST_VERSION}
