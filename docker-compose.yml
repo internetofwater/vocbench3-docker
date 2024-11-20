@@ -2,7 +2,7 @@ version: '3.8'
 services:
   vocbench3:
     build:
-      context: 13.0.0
+      context: 13.1.0
       args:
         vb_version: ${VB_VERSION}
         st_version: ${ST_VERSION}
