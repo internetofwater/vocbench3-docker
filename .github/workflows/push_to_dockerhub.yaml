@@ -43,6 +43,8 @@ jobs:
             type=raw,value=latest,enable={{is_default_branch}}
             type=semver,pattern={{version}}
 
+      - name: Download Vocbench Source
+        run: curl -L https://bitbucket.org/art-uniroma2/vocbench3/downloads/vocbench3-${{ env.TARGET_VERSION }}-full.zip ${{ env.TARGET_VERSION }}/vocbench3-${{ env.TARGET_VERSION }}-full.zip
 
       - name: Build and Push Docker Image
         uses: docker/build-push-action@v4
