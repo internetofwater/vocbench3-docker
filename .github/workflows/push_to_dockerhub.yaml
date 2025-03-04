@@ -23,7 +23,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
         with: 
-                ref: {{ env.TARGET_VERSION }}
+                ref: ${{ env.TARGET_VERSION }}
       - name: Log in to Docker Hub
         uses: docker/login-action@v2
         with:
@@ -47,7 +47,7 @@ jobs:
       - name: Build and Push Docker Image
         uses: docker/build-push-action@v4
         with:
-          context: {{ env.TARGET_VERSION }}
+          context: ${{ env.TARGET_VERSION }}
           push: true
           platforms: linux/amd64
           tags: ${{ steps.meta.outputs.tags }}
