@@ -14,7 +14,7 @@ concurrency:
 
 env:
   IMAGE_NAME: ${{ github.repository }}
-  TARGET_VERSION: 13.0.0
+  TARGET_VERSION: 12.2.0
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
